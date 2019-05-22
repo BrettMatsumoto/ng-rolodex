@@ -2,6 +2,7 @@ ul {
     margin: 0;
     padding: 15px;
     background-color: lighten(blue, 25%);
+    display: flex;
 
     li {
         list-style-type: none;
