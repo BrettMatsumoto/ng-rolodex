@@ -5,19 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class BackendService {
-    
-  newUserData: {
-    username: string;
-    name: string;
-    email: string;
-    address: string;
-  } = {
-    username: '',
-    name: '',
-    email: '',
-    address: '',
-  };
-
   constructor(private http: HttpClient) {}
 
   getContacts(): Promise<object> {
