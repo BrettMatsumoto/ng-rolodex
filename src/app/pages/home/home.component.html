@@ -1,41 +1,46 @@
 <div class="page">
   <h1 id="pageTitle">Home Page</h1>
-  <!-- <form>
-    <div>
-      <label for="name">Name:</label>
+  <div id="content">
+    <div id="userCards">
+      <div *ngFor="let user of contacts" class="userList">
+        <label class="label">Name:</label>
+        <span>{{ user.name }}</span>
+        <br />
+        <label class="label">Address: </label>
+        <span>{{ user.address }}</span>
+        <br />
+        <label class="label">Mobile: </label>
+        <span>{{ user.mobile }}</span>
+        <br />
+        <label class="label">Work: </label>
+        <span>{{ user.work }}</span>
+        <br />
+        <label class="label">Home: </label>
+        <span>{{ user.home }}</span>
+        <br />
+        <label class="label">Email: </label>
+        <span>{{ user.email }}</span>
+        <br />
+        <label class="label">Twitter: </label>
+        <span>{{ user.twitter }}</span>
+        <br />
+        <label class="label">instagram: </label>
+        <span>{{ user.instagram }}</span>
+        <br />
+        <label class="label">Github </label>
+        <span>{{ user.github }}</span>
+      </div>
     </div>
-    <div>
-      <input type="text" name="name" [(ngModel)]="formData.name">
-    </div>
-  </form> -->
-  <div id="userCards">
-    <div *ngFor="let user of contacts" class="userList">
-      <label class="label">Name:</label>
-      <span>{{ user.name }}</span>
-      <br>
-      <label class="label">Address: </label>
-      <span>{{ user.address }}</span>
-      <br>
-      <label class="label">Mobile: </label>
-      <span>{{ user.mobile }}</span>
-      <br>
-      <label class="label">Work: </label>
-      <span>{{ user.work }}</span>
-      <br>
-      <label class="label">Home: </label>
-      <span>{{ user.home }}</span>
-      <br>
-      <label class="label">Email: </label>
-      <span>{{ user.email }}</span>
-      <br>
-      <label class="label">Twitter: </label>
-      <span>{{ user.twitter }}</span>
-      <br>
-      <label class="label">instagram: </label>
-      <span>{{ user.instagram }}</span>
-      <br>
-      <label class="label">Github </label>
-      <span>{{ user.github }}</span>
+    <div id="searchParams">
+      <form id="filterName">
+        <div>
+          <label for="name">Filter by Name:</label>
+        </div>
+        <div>
+          <input type="text" name="name" [(ngModel)]="findUser.name" />
+        </div>
+        <button (click)="submit()">Submit</button>
+      </form>
     </div>
   </div>
 </div>

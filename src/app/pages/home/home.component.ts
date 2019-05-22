@@ -31,31 +31,31 @@ export class HomeComponent implements OnInit {
     github: string,
   }[] = [];
 
-  // findUser: {
-  //   name: string;
-  // } = {
-  //   name: '',
-  // };
+  findUser: {
+    name: string;
+  } = {
+    name: 'brett',
+  };
 
-  // foundUsers: {
-  //   name: string;
-  // }[] = [];
+  foundUsers: {
+    name: string;
+  }[] = [];
 
   constructor(private backend: BackendService) {}
 
   ngOnInit() {
     this.backend.getContacts().then((data: ContactsResponse[]) => {
       this.contacts = data;
-      console.log(data);
+      console.log('*******',this.contacts);
     })
   }
 
-  // submit() {
-  //   console.log(this.findUser);
-  //   const { name } = this.findUser;
+  submit() {
+    console.log(this.findUser);
+    const { name } = this.findUser;
 
-  //   this.backend.searchContacts(name).then((data: { name: string }[]) => {
-  //     this.foundUsers = data
-  //   });
-  // }
+    this.backend.searchContacts(name).then((data: { name: string }[]) => {
+      this.foundUsers = data
+    });
+  }
 }

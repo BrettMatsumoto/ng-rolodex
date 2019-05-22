@@ -11,19 +11,19 @@
 
 #userCards {
   border: 1px solid black;
-  margin-top: 50px;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-bottom: 25px;
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
   display: flex;
   flex-wrap: wrap;
   flex-basis: 33%;
   justify-content: space-around;
   padding-top: 15px;
-  padding-bottom: 15px;
+  // padding-bottom: 15px;
   background-color: papayawhip;
   font-size: 20px;
-  width: 50%;
+  width: 45%;
   overflow: auto;
   height: 680px;
 }
@@ -35,4 +35,28 @@
 #pageTitle{
     display: flex;
     justify-content: center;
+}
+
+#content {
+  display: flex;
+  justify-content: space-between;
+}
+
+#searchParams {
+  border: 1px solid black;
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 33%;
+  justify-content: space-around;
+  padding-top: 15px;
+  // padding-bottom: 15px;
+  background-color: papayawhip;
+  font-size: 20px;
+  width: 45%;
+  overflow: auto;
+  height: 680px;
 }
