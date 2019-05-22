@@ -9,8 +9,8 @@ const redis = require('connect-redis')(session);
 
 const saltRounds = 12;
 
-const userRoute = require('./routes/users');
-const contactRoute = require('./routes/contacts');
+// const userRoute = require('./routes/users');
+// const contactRoute = require('./routes/contacts');
 require('dotenv').config();
 
 const PORT = process.env.EXPRESS_CONTAINER_PORT;
@@ -29,16 +29,47 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(
-    new LocalStrategy(function(username, password, done) {
-        return new userRoute({ username:username })
-        .fetch()
-        .then((user) => {
-            if (user === null) {
-                
+  new LocalStrategy(function(username, password, done) {
+    return new userRoute({ username: username })
+      .fetch()
+      .then((user) => {
+        if (user === null) {
+          return done(null, false, { message: 'Incorrect login Credentials' });
+        } else {
+          user = user.toJSON();
+          bcrypt.compare(password, user.password).then((res) => {
+            if (res) {
+              return done(null, user);
+            } else {
+              return done(null, false, { message: 'Incorrect login Credentials' });
             }
-        })
-    })
-)
+          });
+        }
+      })
+      .catch((err) => {
+        return done(err);
+      });
+  }),
+);
+
+passport.serializeUser(function(user, done) {
+  return done(null, { id: user.id, username: user.username });
+});
+
+passport.deserializeUser(function(user, done) {
+
+  return new User({ id: user.id }).fetch().then((user) => {
+    user = user.toJSON();
+    done(null, {
+      id: user.id,
+      username: user.username,
+      role_id: user.role_id,
+    });
+  });
+});
+
+// app.use('/api/users', userRoute);
+// app.use('/api/contacts', contactRoute);
 
 const server = app.listen(PORT, () => {
   console.log(`Express app is running at port ${PORT}`);
