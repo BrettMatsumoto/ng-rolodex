@@ -8,9 +8,8 @@ const cookieParser = require('cookie-parser');
 const redis = require('connect-redis')(session);
 
 const saltRounds = 12;
-
-// const userRoute = require('./routes/users');
-// const contactRoute = require('./routes/contacts');
+const usersRoute = require('./routes/users');
+const contactsRoute = require('./routes/contacts');
 require('dotenv').config();
 
 const PORT = process.env.EXPRESS_CONTAINER_PORT;
@@ -57,7 +56,6 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-
   return new User({ id: user.id }).fetch().then((user) => {
     user = user.toJSON();
     done(null, {
@@ -68,8 +66,8 @@ passport.deserializeUser(function(user, done) {
   });
 });
 
-// app.use('/api/users', userRoute);
-// app.use('/api/contacts', contactRoute);
+app.use('/api/users', usersRoute);
+app.use('/api/contacts', contactsRoute);
 
 const server = app.listen(PORT, () => {
   console.log(`Express app is running at port ${PORT}`);
