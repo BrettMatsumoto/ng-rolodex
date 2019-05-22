@@ -1,6 +1,11 @@
 exports.up = function(knex, Promise) {
   return knex.schema.table('contacts', (table) => {
-    table.string('created_by').notNull();
+    table
+      .integer('created_by')
+      .refrences('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .notNull();
   });
 };
 
