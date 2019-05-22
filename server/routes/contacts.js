@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../database/knex');
-const Contact = require('../database/models/contact');
+const Contact = require('../database/models/Contact');
 const guard = require('../database/middleware/guard');
 
-router.get('/', guard, (req, res) => {
+router.get('/', (req, res) => {
   new Contact().fetchAll().then((result) => {
-    return res.send(result.toJSON());
+    const resultObj = result.toJSON()
+    return res.send(resultObj);
   });
 });
+
 module.exports = router;
