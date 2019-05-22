@@ -1,0 +1,29 @@
+.userList {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 20px;
+  width: 40%;
+  background-color: white;
+}
+
+#userCards {
+  border: 1px solid black;
+  margin: 25px;
+  display: flex;
+  flex-basis: 33%;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: papayawhip;
+}
+
+.label {
+  text-decoration: underline;
+}
+
+#pageTitle{
+    display: flex;
+    justify-content: center;
+}
