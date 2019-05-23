@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   findUser: {
     name: string;
   } = {
-    name: 'brett',
+    name: '',
   };
 
   foundUsers: {
@@ -46,16 +46,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.backend.getContacts().then((data: ContactsResponse[]) => {
       this.contacts = data;
-      console.log('*******',this.contacts);
     })
   }
 
   submit() {
-    console.log(this.findUser);
     const { name } = this.findUser;
 
     this.backend.searchContacts(name).then((data: { name: string }[]) => {
       this.foundUsers = data
+      console.log(this.foundUsers);
     });
   }
 }
