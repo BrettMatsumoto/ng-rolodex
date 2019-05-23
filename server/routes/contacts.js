@@ -11,4 +11,10 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/search/:id', (req, res) => {
+  console.log(req.body);
+  new Contact({ name: req.params.id })
+  .fetch()
+})
+
 module.exports = router;
