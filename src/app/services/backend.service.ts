@@ -28,6 +28,7 @@ export class BackendService {
   }
 
   login(data) {
+    console.log('backend.serv', data);
     return this.http.post('/api/login', data).toPromise();
   }
 
