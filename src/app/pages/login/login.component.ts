@@ -29,8 +29,4 @@ export class LoginComponent {
         console.log('Error:', err);
       });
   }
-
-  submit() {
-    console.log(this.formData);
-  }
 }
