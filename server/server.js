@@ -69,6 +69,18 @@ passport.deserializeUser(function(user, done) {
 app.use('/api/users', usersRoute);
 app.use('/api/contacts', contactsRoute);
 
+app.post('/api/register', (req, res) => {
+  return res.json({ status: 'ok' });
+});
+
+app.post('/api/register', (req, res) => {
+  return res.json({ status: 'ok' });
+});
+
+app.get('/api/logout', (req, res) => {
+  return res.json({ status: 'ok' });
+});
+
 const server = app.listen(PORT, () => {
   console.log(`Express app is running at port ${PORT}`);
 });
