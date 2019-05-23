@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   formData: {
     username: string;
-    email: string;
+    password: string;
   } = {
     username: '',
-    email: '',
+    password: '',
   };
 
   constructor(private auth: AuthService, private router: Router) {}
@@ -22,7 +22,7 @@ export class LoginComponent {
     this.auth
       .login(this.formData)
       .then(() => {
-        console.log('user logged in');
+        // console.log('user logged in');
         this.router.navigate(['/']);
       })
       .catch((err) => {
