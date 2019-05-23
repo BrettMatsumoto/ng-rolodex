@@ -19,7 +19,19 @@ export class BackendService {
     return this.http.post('/api/register', newUserData).toPromise();
   }
 
-  searchContacts(name: string): Promise<object> {
-    return this.http.get(`/api/contacts/search/${name}`).toPromise();
+  searchContacts(name): Promise<object> {
+    return this.http.get(`/api/contacts/search/:id`, name).toPromise();
+  }
+
+  register(data) {
+    return this.http.post('/api/register', data).toPromise();
+  }
+
+  login(data) {
+    return this.http.post('/api/login', data).toPromise();
+  }
+
+  logout() {
+    return this.http.get('./api/logout').toPromise();
   }
 }
