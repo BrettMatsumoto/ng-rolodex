@@ -1,23 +1,19 @@
 <div class="page">
-    <h1>Login</h1>
-  
+  <h1>Login Page</h1>
+
+  <div class="form-container">
     <form>
       <div>
-        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="username" [(ngModel)]="formData.username" />
       </div>
+
       <div>
-        <input type="text" name="name" [(ngModel)]="formData.name" />
+        <input type="password" name="password" placeholder="password" [(ngModel)]="formData.password" />
       </div>
-  
+
       <div>
-        <label for="password">Password:</label>
-      </div>
-      <div>
-        <input type="text" name="email" [(ngModel)]="formData.email"/>
-      </div>
-  
-      <div>
-          <button (click)="submit()">Submit</button>
+        <button class="btn" (click)="login()">Login</button>
       </div>
     </form>
   </div>
+</div>
