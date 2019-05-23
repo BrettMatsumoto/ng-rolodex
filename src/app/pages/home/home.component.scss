@@ -4,7 +4,7 @@
   flex-direction: column;
   padding: 10px;
   margin: 20px;
-  width: 45%;
+  width: 43%;
   background-color: white;
   align-items: center;
 }
@@ -20,12 +20,12 @@
   flex-basis: 33%;
   justify-content: space-around;
   padding-top: 15px;
-  // padding-bottom: 15px;
-  background-color: papayawhip;
+  background-color: #ddd;
   font-size: 20px;
-  width: 45%;
+  width: 35%;
   overflow: auto;
   height: 680px;
+  box-shadow: 10px 10px 2px 2px #eee;
 }
 
 .label {
@@ -54,9 +54,10 @@
   justify-content: space-around;
   padding-top: 15px;
   // padding-bottom: 15px;
-  background-color: papayawhip;
+  background-color: #ddd;
   font-size: 20px;
-  width: 45%;
+  width: 35%;
   overflow: auto;
   height: 680px;
+  box-shadow: 10px 10px 2px 2px #eee;
 }
