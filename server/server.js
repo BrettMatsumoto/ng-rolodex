@@ -8,8 +8,11 @@ const cookieParser = require('cookie-parser');
 const redis = require('connect-redis')(session);
 
 const saltRounds = 12;
+const User = require('./database/models/User');
 const usersRoute = require('./routes/users');
 const contactsRoute = require('./routes/contacts');
+const registerRoute = require('./routes/register');
+const loginRoute = require('./routes/login');
 require('dotenv').config();
 
 const PORT = process.env.EXPRESS_CONTAINER_PORT;
@@ -29,7 +32,8 @@ app.use(passport.session());
 
 passport.use(
   new LocalStrategy(function(username, password, done) {
-    return new userRoute({ username: username })
+    console.log('test')
+    return new User({ username: username })
       .fetch()
       .then((user) => {
         if (user === null) {
@@ -68,14 +72,16 @@ passport.deserializeUser(function(user, done) {
 
 app.use('/api/users', usersRoute);
 app.use('/api/contacts', contactsRoute);
+app.use('/api/register', registerRoute);
+app.use('/api/login', loginRoute);
 
-app.post('/api/register', (req, res) => {
-  return res.json({ status: 'ok' });
-});
+// app.post('/api/register', (req, res) => {
+//   return res.json({ status: 'ok' });
+// });
 
-app.post('/api/register', (req, res) => {
-  return res.json({ status: 'ok' });
-});
+// app.post('/api/login', (req, res) => {
+//   return res.json({ status: 'ok' });
+// });
 
 app.get('/api/logout', (req, res) => {
   return res.json({ status: 'ok' });
