@@ -32,7 +32,7 @@ app.use(passport.session());
 
 passport.use(
   new LocalStrategy(function(username, password, done) {
-    console.log('test')
+    // console.log('test')
     return new User({ username: username })
       .fetch()
       .then((user) => {
