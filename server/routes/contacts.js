@@ -5,7 +5,8 @@ const Contact = require('../database/models/Contact');
 const guard = require('../database/middleware/guard');
 
 router.get('/', (req, res) => {
-  new Contact().fetchAll().then((result) => {
+  console.log('contacts req', req.user)
+  new Contact().where({ created_by: req.user.id }).fetchAll().then((result) => {
     const resultObj = result.toJSON()
     return res.send(resultObj);
   });
