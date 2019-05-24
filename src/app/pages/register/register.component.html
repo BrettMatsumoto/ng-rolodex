@@ -21,7 +21,7 @@
 
       <div>
         <input
-          type="text"
+          type="password"
           name="password"
           placeholder="Password"
           [ngClass]="{ error: passwordInvalid && password.dirty }"
@@ -81,7 +81,7 @@
       </div> -->
 
       <div>
-        <button class="btn" (click)="register()">Register</button>
+        <button class="btn" (click)="register()" [disabled]="usernameInvalid || passwordInvalid">Register</button>
       </div>
     </form>
   </div>

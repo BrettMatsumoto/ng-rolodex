@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../../services/backend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent {
     address: '',
   };
 
-  constructor() {}
+  constructor(private backend: BackendService, private router: Router) {}
 
   usernameInvalid = true;
   usernameErrorMessage = '';
@@ -44,11 +45,11 @@ export class RegisterComponent {
       this.usernameErrorMessage = 'Username is Required';
       return (this.usernameInvalid = true);
     } else if (username.length < 3) {
-      console.log('2')
+      console.log('2');
       this.usernameErrorMessage = 'Username is too short';
       return (this.usernameInvalid = true);
     }
-    console.log(username)
+    console.log(username);
     this.usernameErrorMessage = '';
     return (this.usernameInvalid = false);
   }
@@ -106,6 +107,10 @@ export class RegisterComponent {
   register() {
     if (this.usernameInvalid || this.passwordInvalid) {
       return;
+    } else {
+      this.backend.register(this.formData).then(() => {
+        this.router.navigate(['/']);
+      });
     }
   }
 }
