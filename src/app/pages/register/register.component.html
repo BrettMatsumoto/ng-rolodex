@@ -1,27 +1,84 @@
 <div class="page">
-  <h1 id="login-title">Register Page</h1>
+  <h1 id="register-title">Register Page</h1>
 
   <div class="form-container">
     <form>
       <div>
-        <input type="text" name="username" placeholder="Username" [(ngModel)]="formData.username" />
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          [ngClass]="{ error: usernameInvalid && username.dirty}"
+          [(ngModel)]="formData.username"
+          (keyup)="validateUsername()"
+          minlength="3"
+          #username="ngModel"
+        />
+      <div class="error-message" *ngIf="usernameInvalid && username.dirty">
+          {{ usernameErrorMessage }}
+        </div>
       </div>
 
       <div>
-        <input type="text" name="password" placeholder="Password" [(ngModel)]="formData.password" />
+        <input
+          type="text"
+          name="password"
+          placeholder="Password"
+          [ngClass]="{ error: passwordInvalid && password.dirty }"
+          [(ngModel)]="formData.password"
+          (keyup)="validatePassword()"
+          minlength="6"
+          #password="ngModel"
+        />
+        <div class="error-message" *ngIf="passwordInvalid && password.dirty">
+          {{ passwordErrorMessage }}
+        </div>
+      </div>
+
+      <!-- <div>
+        <input
+          type="text"
+          name="full-name"
+          placeholder="Full Name"
+          [ngClass]="{ error: nameInvalid && name.dirty}"
+          [(ngModel)]="formData.name"
+          (keyup)="validateName()"
+          #name
+        />
+        <div class="error-message" *ngIf="nameInvalid && name.dirty">
+          {{ nameErrorMessage }}
+        </div>
       </div>
 
       <div>
-        <input type="text" name="full-name" placeholder="Full Name" [(ngModel)]="formData.name" />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          [ngClass]="{ error: emailInvalid && email.dirty }"
+          [(ngModel)]="formData.email"
+          (keyup)="validateEmail()"
+          #email="ngModel"
+        />
+        <div class="error-message" *ngIf="emailInvalid && email.dirty">
+          {{ emailErrorMessage }}
+        </div>
       </div>
 
       <div>
-        <input type="email" name="email" placeholder="Email" [(ngModel)]="formData.email" />
-      </div>
-
-      <div>
-        <input type="text" name="address" placeholder="Address" [(ngModel)]="formData.email" />
-      </div>
+        <input
+          type="text"
+          name="address"
+          placeholder="Address"
+          [ngClass]="{ error: addressInvalid && address.dirty }"
+          [(ngModel)]="formData.address"
+          (keyup)="validateAddress()"
+          #address='ngModel'
+        />
+        <div class="error-message" *ngIf="addressInvalid && address.dirty">
+          {{ addressErrorMessage }}
+        </div>
+      </div> -->
 
       <div>
         <button class="btn" (click)="register()">Register</button>

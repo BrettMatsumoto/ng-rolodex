@@ -1,43 +1,65 @@
-h1 {
-    padding: 15px;
-  }
-  
-  .form-container {
-    width: 100%;
+.error-message {
+  background-color: red;
+  color: white;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.page {
+  max-width: 980px;
+  margin: auto;
+
+  form {
     max-width: 400px;
+    margin: auto;
+    padding: 20px;
     background-color: #ddd;
     border-radius: 10px;
     box-shadow: 10px 10px 2px 2px #eee;
-    margin: auto;
-    padding: 15px;
-  
+
     input {
       width: 100%;
-      padding: 15px;
-      border-radius: 10px;
-      border: 0px;
-      margin-top: 10px;
+      padding: 10px;
+      margin-bottom: 15px;
+      margin-top: 5px;
       font-size: 16px;
+      border: 0;
+
+      &.error {
+        //& translates to input.error
+        border: 1px solid red;
+      }
     }
-  
-    .btn {
-      margin: 15px 0;
+
+    textarea {
+      width: 100%;
+      height: 75px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 0;
+      font-size: 16px;
+      &.error {
+        //& translates to input.error
+        border: 1px solid red;
+      }
+    }
+    button {
+      width: 100%;
       padding: 15px;
       border: 0px;
-      background: #1e5799;
+      background-color: lighten(blue, 25%);
       color: white;
       font-size: 16px;
-      border-radius: 10px;
-      width: 100%;
-      max-width: 100%;
-  
+
       &:disabled {
         background-color: #ccc;
       }
     }
   }
-  
-  #login-title {
+}
+
+#register-title{
   display: flex;
   justify-content: center;
-  }
+}
