@@ -4,11 +4,11 @@ const knex = require('../database/knex');
 const User = require('../database/models/User');
 const guard = require('../database/middleware/guard');
 
-router.get('/', (req, res) => {
-  new User().fetchAll().then((result) => {
-    const resultObj = result.toJSON();
-    return res.send(resultObj);
-  });
-});
+// router.get('/', (req, res) => {
+//   new User().fetchAll().then((result) => {
+//     const resultObj = result.toJSON();
+//     return res.send(resultObj);
+//   });
+// });
 
 module.exports = router;
