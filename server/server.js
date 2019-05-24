@@ -75,14 +75,6 @@ app.use('/api/contacts', contactsRoute);
 app.use('/api/register', registerRoute);
 app.use('/api/login', loginRoute);
 
-// app.post('/api/register', (req, res) => {
-//   return res.json({ status: 'ok' });
-// });
-
-// app.post('/api/login', (req, res) => {
-//   return res.json({ status: 'ok' });
-// });
-
 app.get('/api/logout', (req, res) => {
   return res.json({ status: 'ok' });
 });
