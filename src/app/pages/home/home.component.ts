@@ -63,6 +63,7 @@ export class HomeComponent implements OnInit {
 
     this.backend.getContacts().then((data: ContactsResponse[]) => {
       this.contacts = data;
+      console.log('ngOninit REsponse home', this.contacts)
     })
   }
 
@@ -71,7 +72,6 @@ export class HomeComponent implements OnInit {
 
     this.backend.searchContacts(name).then((data: { name: string }[]) => {
       this.foundUsers = data
-      // console.log(this.foundUsers);
     });
   }
 }

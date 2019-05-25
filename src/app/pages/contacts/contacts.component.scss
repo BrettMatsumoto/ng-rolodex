@@ -1,0 +1,112 @@
+.userList {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  width: 43%;
+  background-color: white;
+  align-items: center;
+}
+
+#userCards {
+  border: 1px solid black;
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 33%;
+  justify-content: space-around;
+  padding-top: 15px;
+  background-color: #ddd;
+  font-size: 20px;
+  width: 35%;
+  overflow: auto;
+  height: 680px;
+  box-shadow: 10px 10px 2px 2px #eee;
+}
+
+.label {
+  text-decoration: underline;
+}
+
+#pageTitle {
+  display: flex;
+  justify-content: center;
+}
+
+#content {
+  display: flex;
+  justify-content: space-around;
+}
+
+#new-contact {
+  border: 1px solid black;
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 35px;
+  background-color: #ddd;
+  font-size: 20px;
+  width: 25%;
+  overflow: auto;
+  height: 680px;
+  box-shadow: 10px 10px 2px 2px #eee;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+  border: 0px;
+  background-color: lighten(blue, 25%);
+  color: white;
+  font-size: 16px;
+}
+
+#deleteButton {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+  border: 0px;
+  background-color: darken(red, 25%);
+  color: white;
+  font-size: 16px;
+}
+
+#new-contact-form-title {
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+
+#editAndDelete {
+  border: 1px solid black;
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 35px;
+  background-color: #ddd;
+  font-size: 20px;
+  width: 25%;
+  overflow: auto;
+  height: 680px;
+  box-shadow: 10px 10px 2px 2px #eee;
+  display: flex;
+  justify-content: center;
+}
+
+#formFiller {
+  margin-top: 5px;
+}

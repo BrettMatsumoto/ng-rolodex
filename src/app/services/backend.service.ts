@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,11 @@ export class BackendService {
 
   getProfile(): Promise<object> {
     return this.http.get('/api/profile').toPromise();
+  }
+
+  createContact(newContactData): Promise<object> {
+    console.log('hits backend services')
+    return this.http.post('./api/contacts', newContactData).toPromise();
   }
 
   createUser(newUserData): Promise<object> {
@@ -36,4 +42,22 @@ export class BackendService {
   logout() {
     return this.http.get('./api/logout').toPromise();
   }
+
+  deleteContact(data) {
+    console.log('hits backend service', data.id);
+    return this.http.delete(`./api/contacts/${data.id}`).toPromise();
+  }
+
+  editContact(data) {
+    // console.log(data);
+    return this.http.put(`./api/contacts/${data.id}`, data).toPromise();
+  }
+
+  // editContact(id: string, updatedContact: object): Promise<object> {
+  //   return this.http.put(`api/contacts/${id}`, updatedContact).toPromise();
+  // }
+
+  // deleteContact(id: string): Promise<object> {
+  //   return this.http.delete(`api/contacts/${id}`).toPromise();
+  // }
 }

@@ -1,1 +1,170 @@
-<h1>hello world</h1>
+<div class="page">
+  <h1 id="pageTitle">Contacts Page</h1>
+  <div id="content">
+    <div id="userCards">
+      <div *ngFor="let user of contacts" class="userList">
+        <div id="cardId">
+          {{ user.id }}
+        </div>
+        <label class="label">Name:</label>
+        <span>{{ user.name }}</span>
+        <br />
+        <label class="label">Address: </label>
+        <span>{{ user.address }}</span>
+        <br />
+        <label class="label">Mobile: </label>
+        <span>{{ user.mobile }}</span>
+        <br />
+        <label class="label">Work: </label>
+        <span>{{ user.work }}</span>
+        <br />
+        <label class="label">Home: </label>
+        <span>{{ user.home }}</span>
+        <br />
+        <label class="label">Email: </label>
+        <span>{{ user.email }}</span>
+        <br />
+        <label class="label">Twitter: </label>
+        <span>{{ user.twitter }}</span>
+        <br />
+        <label class="label">Instagram: </label>
+        <span>{{ user.instagram }}</span>
+        <br />
+        <label class="label">Github: </label>
+        <span>{{ user.github }}</span>
+        <!-- <button id='formFiller' (click)="getId($event)">Select</button> -->
+      </div>
+    </div>
+    <div id="editAndDelete">
+      <form id="new-contact-form">
+        <div>
+          <div id="new-contact-form-title">Edit/Delete A Contact</div>
+        </div>
+        <div>
+          <label for="id">Contact ID:</label>
+        </div>
+        <div>
+          <input type="text" name="id" [(ngModel)]="editFormData.id">
+        </div>
+        <div>
+          <label for="name">Name:</label>
+        </div>
+        <div>
+          <input type="text" name="name" [(ngModel)]="editFormData.name"/>
+        </div>
+        <div>
+          <label for="name">Address:</label>
+        </div>
+        <div>
+          <input type="text" name="address" [(ngModel)]="editFormData.address"/>
+        </div>
+        <div>
+          <label for="name">Mobile:</label>
+        </div>
+        <div>
+          <input type="text" name="mobile" [(ngModel)]="editFormData.mobile"/>
+        </div>
+        <div>
+          <label for="name">Work:</label>
+        </div>
+        <div>
+          <input type="text" name="work" [(ngModel)]="editFormData.work"/>
+        </div>
+        <div>
+          <label for="name">Home:</label>
+        </div>
+        <div>
+          <input type="text" name="home" [(ngModel)]="editFormData.home"/>
+        </div>
+        <div>
+          <label for="name">Email:</label>
+        </div>
+        <div>
+          <input type="text" name="email" [(ngModel)]="editFormData.email"/>
+        </div>
+        <div>
+          <label for="name">Twitter:</label>
+        </div>
+        <div>
+          <input type="text" name="twitter" [(ngModel)]="editFormData.twitter"/>
+        </div>
+        <div>
+          <label for="name">Instagram:</label>
+        </div>
+        <div>
+          <input type="text" name="instagram" [(ngModel)]="editFormData.instagram"/>
+        </div>
+        <div>
+          <label for="name">Github:</label>
+        </div>
+        <div>
+          <input type="text" name="github" [(ngModel)]="editFormData.github"/>
+        </div>
+        <button (click)="delete()" id="deleteButton">Delete</button>
+        <button (click)="edit()" class="button">Edit</button>
+      </form>
+    </div>
+    <div id="new-contact">
+      <form id="new-contact-form">
+        <div>
+          <div id="new-contact-form-title">Create A New Contact</div>
+        </div>
+        <div>
+          <label for="name">Name:</label>
+        </div>
+        <div>
+          <input type="text" name="name" [(ngModel)]="formData.name" />
+        </div>
+        <div>
+          <label for="name">Address:</label>
+        </div>
+        <div>
+          <input type="text" name="address" [(ngModel)]="formData.address" />
+        </div>
+        <div>
+          <label for="name">Mobile:</label>
+        </div>
+        <div>
+          <input type="text" name="mobile" [(ngModel)]="formData.mobile" />
+        </div>
+        <div>
+          <label for="name">Work:</label>
+        </div>
+        <div>
+          <input type="text" name="work" [(ngModel)]="formData.work" />
+        </div>
+        <div>
+          <label for="name">Home:</label>
+        </div>
+        <div>
+          <input type="text" name="home" [(ngModel)]="formData.home" />
+        </div>
+        <div>
+          <label for="name">Email:</label>
+        </div>
+        <div>
+          <input type="text" name="email" [(ngModel)]="formData.email" />
+        </div>
+        <div>
+          <label for="name">Twitter:</label>
+        </div>
+        <div>
+          <input type="text" name="twitter" [(ngModel)]="formData.twitter" />
+        </div>
+        <div>
+          <label for="name">Instagram:</label>
+        </div>
+        <div>
+          <input type="text" name="instagram" [(ngModel)]="formData.instagram" />
+        </div>
+        <div>
+          <label for="name">Github:</label>
+        </div>
+        <div>
+          <input type="text" name="github" [(ngModel)]="formData.github" />
+        </div>
+        <button (click)="submit()" class="button">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
