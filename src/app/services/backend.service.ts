@@ -24,11 +24,12 @@ export class BackendService {
   }
 
   register(data) {
-    return this.http.post('/api/register', data).toPromise();
+    // console.log('hits backend register')
+    return this.http.post('./api/register', data).toPromise();
   }
 
   login(data) {
-    console.log('backend.serv', data);
+    // console.log('backend.serv', data);
     return this.http.post('/api/login', data).toPromise();
   }
 
