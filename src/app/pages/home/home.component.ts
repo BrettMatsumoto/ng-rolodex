@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
 
     this.backend.searchContacts(name).then((data: { name: string }[]) => {
       this.foundUsers = data
-      console.log(this.foundUsers);
+      // console.log(this.foundUsers);
     });
   }
 }
