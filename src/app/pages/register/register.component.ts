@@ -37,19 +37,14 @@ export class RegisterComponent {
 
   validateUsername() {
     const { username } = this.formData;
-    // console.log(username);
 
     if (!username) {
-      // console.log(username)
-      console.log('1');
       this.usernameErrorMessage = 'Username is Required';
       return (this.usernameInvalid = true);
     } else if (username.length < 3) {
-      console.log('2');
       this.usernameErrorMessage = 'Username is too short';
       return (this.usernameInvalid = true);
     }
-    console.log(username);
     this.usernameErrorMessage = '';
     return (this.usernameInvalid = false);
   }
@@ -108,9 +103,10 @@ export class RegisterComponent {
     if (this.usernameInvalid || this.passwordInvalid) {
       return;
     } else {
+      // console.log('gets pass form validation')
       this.backend.register(this.formData).then(() => {
-        this.router.navigate(['/']);
-      });
+        this.router.navigate(['/login'])
+      })
     }
   }
 }
