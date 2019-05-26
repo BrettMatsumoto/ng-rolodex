@@ -5,7 +5,6 @@ const Contact = require('../database/models/Contact');
 const guard = require('../database/middleware/guard');
 
 router.get('/', guard, (req, res) => {
-  // console.log('contacts req', req.user)
   new Contact()
     .where({ created_by: req.user.id })
     .fetchAll()
@@ -13,10 +12,6 @@ router.get('/', guard, (req, res) => {
       const resultObj = result.toJSON();
       return res.send(resultObj);
     });
-});
-
-router.get('/:id', guard, (req, res) => {
-  new Contact({ name: req.params.id }).fetch();
 });
 
 router.get('/search/:id', (req, res) => {
@@ -55,8 +50,6 @@ router.post('/', guard, (req, res) => {
 });
 
 router.delete('/:id', guard, (req, res) => {
-  // console.log('hits backend router', req.body);
-  // console.log('hits backend route', req.params.id)
   new Contact({ id: req.params.id }).destroy().then(() => {
     new Contact()
       .where({ created_by: req.user.id })

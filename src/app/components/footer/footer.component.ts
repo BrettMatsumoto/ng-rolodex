@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { SessionService } from 'src/app/services/session.service';
-import { Session } from 'inspector';
 
 @Component({
   selector: 'app-footer',

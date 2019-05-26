@@ -61,7 +61,6 @@ export class RegisterComponent {
     if (this.usernameInvalid || this.passwordInvalid) {
       return;
     } else {
-      // console.log('gets pass form validation')
       this.backend.register(this.formData).then(() => {
         this.router.navigate(['/login'])
       })
