@@ -26,6 +26,7 @@ export class BackendService {
   }
 
   searchContacts(name): Promise<object> {
+    console.log(name);
     return this.http.get(`/api/contacts/search/:id`, name).toPromise();
   }
 

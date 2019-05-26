@@ -1,4 +1,4 @@
-.userList {
+#userList {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,28 @@
   align-items: center;
 }
 
-#userCards {
+#foundUserList {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 20px;
+  width: 43%;
+  background-color: white;
+  align-items: center;
+}
+
+#resetButton {
+  margin-top: 10px;
+  width: 100%;
+  padding: 15px;
+  border: 0px;
+  background-color: lighten(blue, 25%);
+  color: white;
+  font-size: 16px;
+}
+
+.userCards {
   border: 1px solid black;
   margin-top: 40px;
   margin-left: 15px;
@@ -32,9 +53,9 @@
   text-decoration: underline;
 }
 
-#pageTitle{
-    display: flex;
-    justify-content: center;
+#pageTitle {
+  display: flex;
+  justify-content: center;
 }
 
 #content {
@@ -53,7 +74,6 @@
   flex-basis: 33%;
   justify-content: space-around;
   padding-top: 15px;
-  // padding-bottom: 15px;
   background-color: #ddd;
   font-size: 20px;
   width: 35%;

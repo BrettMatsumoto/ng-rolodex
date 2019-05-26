@@ -4,7 +4,7 @@ const knex = require('../database/knex');
 const Contact = require('../database/models/Contact');
 const guard = require('../database/middleware/guard');
 
-router.get('/', (req, res) => {
+router.get('/', guard, (req, res) => {
   // console.log('contacts req', req.user)
   new Contact()
     .where({ created_by: req.user.id })
@@ -15,15 +15,23 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', guard, (req, res) => {
   new Contact({ name: req.params.id }).fetch();
 });
 
-router.get('/specific', (req, res) => {
-  console.log(req);
+router.get('/search/:id', (req, res) => {
+  console.log('server side',req.body.name)
+  new Contact()
+    .where({ created_by: req.user.id })
+    .fetchAll()
+    .then((result) => {
+      const resultObj = result.toJSON();
+      console.log('back from tables', resultObj);
+      return res.send(resultObj);
+    });
 });
 
-router.post('/', (req, res) => {
+router.post('/', guard, (req, res) => {
   console.log('hits contact route', req.body);
   new Contact({
     name: req.body.name,
@@ -46,7 +54,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', guard, (req, res) => {
   // console.log('hits backend router', req.body);
   // console.log('hits backend route', req.params.id)
   new Contact({ id: req.params.id }).destroy().then(() => {
@@ -60,7 +68,7 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', guard, (req, res) => {
   const body = req.body;
   console.log('server route', body);
   new Contact({ id: req.params.id })

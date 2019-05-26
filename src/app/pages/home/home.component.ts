@@ -4,15 +4,15 @@ import { SessionService } from 'src/app/services/session.service';
 import { Router } from '@angular/router';
 
 interface ContactsResponse {
-  name: string,
-  address: string,
-  mobile: string,
-  work: string,
-  home: string,
-  email: string,
-  twitter: string,
-  instagram: string,
-  github: string,
+  name: string;
+  address: string;
+  mobile: string;
+  work: string;
+  home: string;
+  email: string;
+  twitter: string;
+  instagram: string;
+  github: string;
 }
 
 @Component({
@@ -22,30 +22,54 @@ interface ContactsResponse {
 })
 export class HomeComponent implements OnInit {
   contacts: {
-    name: string,
-    address: string,
-    mobile: string,
-    work: string,
-    home: string,
-    email: string,
-    twitter: string,
-    instagram: string,
-    github: string,
+    name: string;
+    address: string;
+    mobile: string;
+    work: string;
+    home: string;
+    email: string;
+    twitter: string;
+    instagram: string;
+    github: string;
   }[] = [];
 
   user: {
-    loggedIn: boolean,
+    loggedIn: boolean;
     username: string;
-  }
+  };
 
   findUser: {
     name: string;
+    address: string;
+    mobile: string;
+    work: string;
+    home: string;
+    email: string;
+    twitter: string;
+    instagram: string;
+    github: string;
   } = {
     name: '',
+    address: '',
+    mobile: '',
+    work: '',
+    home: '',
+    email: '',
+    twitter: '',
+    instagram: '',
+    github: '',
   };
 
   foundUsers: {
     name: string;
+    address: string;
+    mobile: string;
+    work: string;
+    home: string;
+    email: string;
+    twitter: string;
+    instagram: string;
+    github: string;
   }[] = [];
 
   constructor(private backend: BackendService, private session: SessionService, private router: Router) {
@@ -58,20 +82,49 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     if (!this.isLoggedIn()) {
-      this.router.navigate(['/login'])
+      this.router.navigate(['/login']);
     }
 
     this.backend.getContacts().then((data: ContactsResponse[]) => {
       this.contacts = data;
-      console.log('ngOninit REsponse home', this.contacts)
-    })
+    });
+  }
+
+  resetSearch() {
+    console.log('reset')
+    this.foundUsers = [];
   }
 
   submit() {
     const { name } = this.findUser;
+    console.log(name);
 
-    this.backend.searchContacts(name).then((data: { name: string }[]) => {
-      this.foundUsers = data
-    });
+    this.backend
+      .searchContacts(name)
+      .then(
+        (
+          data: {
+            name: string;
+            address: string;
+            mobile: string;
+            work: string;
+            home: string;
+            email: string;
+            twitter: string;
+            instagram: string;
+            github: string;
+          }[],
+        ) => {
+          let newArr = data.filter((obj) => {
+            return obj.name.startsWith(name);
+          });
+          console.log('newArr',newArr);
+          this.foundUsers = newArr;
+          console.log('this.foundUsers', this.foundUsers);
+        },
+      )
+      .then(() => {
+        this.ngOnInit();
+      });
   }
 }
