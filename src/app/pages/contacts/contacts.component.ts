@@ -123,7 +123,7 @@ export class ContactsComponent implements OnInit {
     })
   }
 
-  // formFiller(event) {
-  //   console.log(event.target.parentNode)
-  // }
+  giveAlert() {
+    alert('New Contact Created!')
+  }
 }

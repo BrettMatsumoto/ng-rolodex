@@ -54,11 +54,7 @@ export class BackendService {
     return this.http.put(`./api/contacts/${data.id}`, data).toPromise();
   }
 
-  // editContact(id: string, updatedContact: object): Promise<object> {
-  //   return this.http.put(`api/contacts/${id}`, updatedContact).toPromise();
-  // }
-
-  // deleteContact(id: string): Promise<object> {
-  //   return this.http.delete(`api/contacts/${id}`).toPromise();
-  // }
+  getUser() {
+    return this.http.get('/api/user/').toPromise();
+  }
 }

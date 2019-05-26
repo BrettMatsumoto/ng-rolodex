@@ -1,22 +1,28 @@
 <div class="page">
-  <h1 id="login-title">Login Page</h1>
+  <h1 id="login-title">Login</h1>
 
   <div class="form-container">
     <form>
+      
       <div>
-        <input type="text" name="username" placeholder="username" [(ngModel)]="formData.username" />
+        <input type="text" name="username" placeholder="username" [(ngModel)]="formData.username" [ngClass]="{ errror: usernameInvalid }" #credentials/>
       </div>
 
       <div>
-        <input type="password" name="password" placeholder="password" [(ngModel)]="formData.password" />
+        <input type="password" name="password" placeholder="password" [(ngModel)]="formData.password" [ngClass]="{ errror: passwordInvalid }" #credentials/>
       </div>
 
       <div>
-        <button class="btn" (click)="login()">Login</button>
+        <button class="btn" (click)="login()" (keyup)="validateLogin()">Login</button>
       </div>
+
       <div>
         <button class="btn" routerLink="/register">Register</button>
       </div>
+
+      <h4 id="warning">*Username and Password is Case-Sensitive.</h4>
+
     </form>
   </div>
+
 </div>

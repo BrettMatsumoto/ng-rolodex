@@ -4,7 +4,8 @@
     <div id="userCards">
       <div *ngFor="let user of contacts" class="userList">
         <div id="cardId">
-          {{ user.id }}
+          <label class="label">Contact ID:</label>
+          <span> {{ user.id }}</span>
         </div>
         <label class="label">Name:</label>
         <span>{{ user.name }}</span>
@@ -44,61 +45,61 @@
           <label for="id">Contact ID:</label>
         </div>
         <div>
-          <input type="text" name="id" [(ngModel)]="editFormData.id">
+          <input type="text" name="id" [(ngModel)]="editFormData.id" />
         </div>
         <div>
           <label for="name">Name:</label>
         </div>
         <div>
-          <input type="text" name="name" [(ngModel)]="editFormData.name"/>
+          <input type="text" name="name" [(ngModel)]="editFormData.name" />
         </div>
         <div>
           <label for="name">Address:</label>
         </div>
         <div>
-          <input type="text" name="address" [(ngModel)]="editFormData.address"/>
+          <input type="text" name="address" [(ngModel)]="editFormData.address" />
         </div>
         <div>
           <label for="name">Mobile:</label>
         </div>
         <div>
-          <input type="text" name="mobile" [(ngModel)]="editFormData.mobile"/>
+          <input type="text" name="mobile" [(ngModel)]="editFormData.mobile" />
         </div>
         <div>
           <label for="name">Work:</label>
         </div>
         <div>
-          <input type="text" name="work" [(ngModel)]="editFormData.work"/>
+          <input type="text" name="work" [(ngModel)]="editFormData.work" />
         </div>
         <div>
           <label for="name">Home:</label>
         </div>
         <div>
-          <input type="text" name="home" [(ngModel)]="editFormData.home"/>
+          <input type="text" name="home" [(ngModel)]="editFormData.home" />
         </div>
         <div>
           <label for="name">Email:</label>
         </div>
         <div>
-          <input type="text" name="email" [(ngModel)]="editFormData.email"/>
+          <input type="text" name="email" [(ngModel)]="editFormData.email" />
         </div>
         <div>
           <label for="name">Twitter:</label>
         </div>
         <div>
-          <input type="text" name="twitter" [(ngModel)]="editFormData.twitter"/>
+          <input type="text" name="twitter" [(ngModel)]="editFormData.twitter" />
         </div>
         <div>
           <label for="name">Instagram:</label>
         </div>
         <div>
-          <input type="text" name="instagram" [(ngModel)]="editFormData.instagram"/>
+          <input type="text" name="instagram" [(ngModel)]="editFormData.instagram" />
         </div>
         <div>
           <label for="name">Github:</label>
         </div>
         <div>
-          <input type="text" name="github" [(ngModel)]="editFormData.github"/>
+          <input type="text" name="github" [(ngModel)]="editFormData.github" />
         </div>
         <button (click)="delete()" id="deleteButton">Delete</button>
         <button (click)="edit()" class="button">Edit</button>
@@ -163,7 +164,7 @@
         <div>
           <input type="text" name="github" [(ngModel)]="formData.github" />
         </div>
-        <button (click)="submit()" class="button">Submit</button>
+        <button (click)="submit()" (click)="giveAlert()" class="button">Submit</button>
       </form>
     </div>
   </div>

@@ -118,9 +118,11 @@ export class HomeComponent implements OnInit {
           let newArr = data.filter((obj) => {
             return obj.name.startsWith(name);
           });
-          console.log('newArr',newArr);
-          this.foundUsers = newArr;
-          console.log('this.foundUsers', this.foundUsers);
+          if (!(name === '')) {
+            this.foundUsers = newArr;
+          } else {
+            return;
+          }
         },
       )
       .then(() => {

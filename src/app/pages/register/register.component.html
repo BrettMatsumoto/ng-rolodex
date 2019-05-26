@@ -35,53 +35,8 @@
         </div>
       </div>
 
-      <!-- <div>
-        <input
-          type="text"
-          name="full-name"
-          placeholder="Full Name"
-          [ngClass]="{ error: nameInvalid && name.dirty}"
-          [(ngModel)]="formData.name"
-          (keyup)="validateName()"
-          #name
-        />
-        <div class="error-message" *ngIf="nameInvalid && name.dirty">
-          {{ nameErrorMessage }}
-        </div>
-      </div>
-
       <div>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          [ngClass]="{ error: emailInvalid && email.dirty }"
-          [(ngModel)]="formData.email"
-          (keyup)="validateEmail()"
-          #email="ngModel"
-        />
-        <div class="error-message" *ngIf="emailInvalid && email.dirty">
-          {{ emailErrorMessage }}
-        </div>
-      </div>
-
-      <div>
-        <input
-          type="text"
-          name="address"
-          placeholder="Address"
-          [ngClass]="{ error: addressInvalid && address.dirty }"
-          [(ngModel)]="formData.address"
-          (keyup)="validateAddress()"
-          #address='ngModel'
-        />
-        <div class="error-message" *ngIf="addressInvalid && address.dirty">
-          {{ addressErrorMessage }}
-        </div>
-      </div> -->
-
-      <div>
-        <button class="btn" (click)="register()" [disabled]="usernameInvalid || passwordInvalid">Register</button>
+        <button class="btn" (click)="register()" [disabled]="usernameInvalid || passwordInvalid">Create Account</button>
       </div>
     </form>
   </div>

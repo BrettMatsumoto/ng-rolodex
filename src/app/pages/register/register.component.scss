@@ -55,6 +55,9 @@
       &:disabled {
         background-color: #ccc;
       }
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 }
