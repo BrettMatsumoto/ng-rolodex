@@ -54,7 +54,8 @@ export class BackendService {
     return this.http.put(`./api/contacts/${data.id}`, data).toPromise();
   }
 
-  getUser() {
-    return this.http.get('/api/user/').toPromise();
-  }
+  // getUser() {
+  //   console.log('test');
+  //   return this.http.get('./api/user/').toPromise();
+  // }
 }
