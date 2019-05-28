@@ -11,7 +11,7 @@ const User = require('../database/models/User');
 const saltRounds = 12;
 
 router.post('/', (req, res) => {
-  console.log('server register route: ',req);
+  // console.log('server register route: ',req);
   bcrypt.genSalt(saltRounds, (err, salt) => {
     if (err) {
       return 500;

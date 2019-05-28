@@ -48,7 +48,7 @@ export class BackendService {
   }
 
   getUser() {
-    console.log('hits getUser function')
+    // console.log('hits getUser function')
     return this.http.get('./api/profile/').toPromise();
   }
 }

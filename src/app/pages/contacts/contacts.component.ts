@@ -103,21 +103,21 @@ export class ContactsComponent implements OnInit {
   }
 
   submit() {
-    console.log('hits submit button');
+    // console.log('hits submit button');
     this.backend.createContact(this.formData).then(() => {
       this.ngOnInit();
     });
   }
 
   delete() {
-    console.log(this.editFormData)
+    // console.log(this.editFormData)
     this.backend.deleteContact(this.editFormData).then(() => {
       this.ngOnInit();
     })
   }
 
   edit() {
-    console.log(this.editFormData)
+    // console.log(this.editFormData)
     this.backend.editContact(this.editFormData).then(()=> {
       this.ngOnInit();
     })

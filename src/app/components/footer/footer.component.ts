@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { SessionService } from 'src/app/services/session.service';
 
@@ -13,7 +12,11 @@ export class FooterComponent {
     loggedIn: boolean;
     username: string;
   };
-  constructor(private auth: AuthService, private router: Router, private session: SessionService) {
+  constructor(private router: Router, private session: SessionService) {
     this.user = this.session.getSession();
+  }
+
+  isLoggedIn() {
+    return this.session.isLoggedIn();
   }
 }

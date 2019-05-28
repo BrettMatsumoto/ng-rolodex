@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
       this.router.navigate(['/login'])
     }
 
-    console.log('hits ngOnInit')
+    // console.log('hits ngOnInit')
     this.backend.getUser().then((data: UserResponse) => {
       this.profile = data
     })

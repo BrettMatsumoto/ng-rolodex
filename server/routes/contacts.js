@@ -15,19 +15,19 @@ router.get('/', guard, (req, res) => {
 });
 
 router.get('/search/:id', (req, res) => {
-  console.log('server side',req.body.name)
+  // console.log('server side',req.body.name)
   new Contact()
     .where({ created_by: req.user.id })
     .fetchAll()
     .then((result) => {
       const resultObj = result.toJSON();
-      console.log('back from tables', resultObj);
+      // console.log('back from tables', resultObj);
       return res.send(resultObj);
     });
 });
 
 router.post('/', guard, (req, res) => {
-  console.log('hits contact route', req.body);
+  // console.log('hits contact route', req.body);
   new Contact({
     name: req.body.name,
     address: req.body.address,
@@ -63,7 +63,7 @@ router.delete('/:id', guard, (req, res) => {
 
 router.put('/:id', guard, (req, res) => {
   const body = req.body;
-  console.log('server route', body);
+  // console.log('server route', body);
   new Contact({ id: req.params.id })
     .save({
       name: body.name,

@@ -91,13 +91,13 @@ export class HomeComponent implements OnInit {
   }
 
   resetSearch() {
-    console.log('reset')
+    // console.log('reset')
     this.foundUsers = [];
   }
 
   submit() {
     const { name } = this.findUser;
-    console.log(name);
+    // console.log(name);
 
     this.backend
       .searchContacts(name)

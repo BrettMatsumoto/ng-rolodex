@@ -5,7 +5,7 @@ const User = require('../database/models/User');
 const guard = require('../database/middleware/guard');
 
 router.get('/', (req, res) => {
-  console.log('hits routes/user', req.user.id)
+  // console.log('hits routes/user', req.user.id)
   new User()
     .where({ id: req.user.id })
     .fetchAll()
